@@ -25,7 +25,7 @@ for /L %%i in (1,1,80) do set "line=!line!-"
 :menu
 cls
 echo !line!
-echo EGYRE v%VER% (%DT%)
+echo STOOLS - EGYRE v%VER% (%DT%)
 echo !line!
 echo (Egy)szeru (Re)ndszergazda eszkoztar - Keszitette: Simon Nandor
 echo !line!
