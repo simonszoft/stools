@@ -1,5 +1,7 @@
 # stools
 Simon's tools for System administrators
 
-- Windows
-- Linux (Debina, Ubuntu)
+* Windows
+  * egyre.cmd (Egyszeru Rendszergazda eszkoztar) - currently only Hungarian language version
+* Linux (Debian, Ubuntu)
+  * install_motd.sh
