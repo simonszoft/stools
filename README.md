@@ -1,2 +1,5 @@
 # stools
-Simon's tools for Linux System administrators
+Simon's tools for System administrators
+
+- Windows
+- Linux (Debina, Ubuntu)
