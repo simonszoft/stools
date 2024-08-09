@@ -12,6 +12,9 @@ _Egyszeru Rendszergazda eszkoztar_
 * Licenc informacio
 * Kilepes
 
+**Kepernyokep**
+
+![](https://raw.githubusercontent.com/simonszoft/stools/main/windows/doc/eresz_cmd_hun.png)
 
 
 
