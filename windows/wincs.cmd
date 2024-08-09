@@ -2,7 +2,7 @@
 :: WINCS - Windows Classic Setting script
 :: Keszitette: Simon Nandor (nandor.simon@gmail.com)
 :: Forras: https://github.com/simonszoft/stools
-setlocal
+setlocal enabledelayedexpansion
 
 set "VER=1.0"
 set "DT=2024.08.08"
@@ -71,4 +71,7 @@ echo !line!
 echo Everything done!
 pause
 
-exit /b 1
+:: EXIT
+:exit
+endlocal
+exit /b 0

@@ -177,8 +177,7 @@ echo !line!
 pause
 goto menu
 
-
-:: KILEPES
+:: EXIT
 :exit
 endlocal
 exit /b 0
