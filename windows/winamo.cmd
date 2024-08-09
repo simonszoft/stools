@@ -112,10 +112,12 @@ if %errorlevel%==0 (
         echo Installing %%a...
         winget install %%a --disable-interactivity --silent --accept-source-agreements --accept-package-agreements
     )
-)
-else (
     echo !line!
-    echo Winget is not installed! Please install it first!
+    echo Application install finished.
+    echo !line!
+) else (
+    echo !line!
+    echo Winget is not installed, please install it first!
     echo !line!
 )
 
