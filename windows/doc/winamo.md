@@ -13,7 +13,7 @@ _WinGet and More installer script_
 * Install multimedia applications (AIMP, Audacity, OpenShot, VSDC, OBSStudio etc.)
     * package list: AIMP.AIMP Audacity.Audacity OpenShot.OpenShot VSDC.Editor OBSProject.OBSStudio
 * Install sysadmin applications (KeePassXC, PuTTY, NETworkManager, WinSCP, RustDesk, EasyConnect, etc.)
-    * package list: KeePassXCTeam.KeePassXC PuTTY.PuTTY BornToBeRoot.NETworkManager WinSCP.WinSCP RustDesk.RustDesk lstratman.easyconnect Microsoft.PowerToys KurtZimmermann.TweakPower MiniTool.PartitionWizard.Free NirSoft.NirCmd TopalaSoftwareSolutions.SIW Glarysoft.GlaryUtilities
+    * package list: KeePassXCTeam.KeePassXC PuTTY.PuTTY BornToBeRoot.NETworkManager WinSCP.WinSCP RustDesk.RustDesk lstratman.easyconnect Microsoft.PowerToys KurtZimmermann.TweakPower MiniTool.PartitionWizard.Free NirSoft.NirCmd TopalaSoftwareSolutions.SIW Glarysoft.GlaryUtilities GlennDelahoy.SnappyDriverInstallerOrigin
 * Install developer applications (VS, Atom, Git, Postman, HeidiSQL, ResourceHacker, Wireshark, OpenVPN, etc.)
     * package list: Microsoft.VisualStudioCode GitHub.Atom Git.Git GitHub.GitHubDesktop Postman.Postman HeidiSQL.HeidiSQL AngusJohnson.ResourceHacker stnkl.EverythingToolbar NickeManarin.ScreenToGif WiresharkFoundation.Wireshark OpenVPNTechnologies.OpenVPNConnect SweetScape.010Editor
 

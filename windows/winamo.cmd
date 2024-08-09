@@ -25,7 +25,7 @@ set "MEDIA_APPS_TITLE=Install multimedia applications (AIMP, Audacity, OpenShot,
 set "MEDIA_APPS=AIMP.AIMP Audacity.Audacity OpenShot.OpenShot VSDC.Editor OBSProject.OBSStudio"
 
 set "SYS_APPS_TITLE=Install sysadmin applications (KeePassXC, PuTTY, NETworkManager, WinSCP, RustDesk, EasyConnect, etc.)"
-set "SYS_APPS=KeePassXCTeam.KeePassXC PuTTY.PuTTY BornToBeRoot.NETworkManager WinSCP.WinSCP RustDesk.RustDesk lstratman.easyconnect Microsoft.PowerToys KurtZimmermann.TweakPower MiniTool.PartitionWizard.Free NirSoft.NirCmd TopalaSoftwareSolutions.SIW Glarysoft.GlaryUtilities"
+set "SYS_APPS=KeePassXCTeam.KeePassXC PuTTY.PuTTY BornToBeRoot.NETworkManager WinSCP.WinSCP RustDesk.RustDesk lstratman.easyconnect Microsoft.PowerToys KurtZimmermann.TweakPower MiniTool.PartitionWizard.Free NirSoft.NirCmd TopalaSoftwareSolutions.SIW Glarysoft.GlaryUtilities GlennDelahoy.SnappyDriverInstallerOrigin"
 
 set "DEV_APPS_TITLE=Install developer applications (VS, Atom, Git, Postman, HeidiSQL, ResourceHacker, Wireshark, OpenVPN, etc.)"
 set "DEV_APPS=Microsoft.VisualStudioCode GitHub.Atom Git.Git GitHub.GitHubDesktop Postman.Postman HeidiSQL.HeidiSQL AngusJohnson.ResourceHacker stnkl.EverythingToolbar NickeManarin.ScreenToGif WiresharkFoundation.Wireshark OpenVPNTechnologies.OpenVPNConnect SweetScape.010Editor" 
