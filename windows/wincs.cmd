@@ -27,12 +27,13 @@ echo !line!
 echo (Win)dows (C)lassic (s)etting script - By: Simon Nandor
 echo !line!
 
-:: Enable "This PC", "My Documents", and "Recycle Bin" icons on the desktop
-echo Enable "This PC", "My Documents", and "Recycle Bin" icons on the desktop? (Y/N)
+:: Enable "This PC", "My Documents / User's Files ", and "Recycle Bin" icons on the desktop
+echo Enable "This PC", "My Documents / User's Files", and "Recycle Bin" icons on the desktop? (Y/N)
 choice /c YN /n /m "?: "
 if errorlevel 2 goto N1
 reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel" /v "{20D04FE0-3AEA-1069-A2D8-08002B30309D}" /t REG_DWORD /d 0 /f
 reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel" /v "{450D8FBA-AD25-11D0-98A8-0800361B1103}" /t REG_DWORD /d 0 /f
+reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel" /v "{59031a47-3f72-44a7-89c5-5595fe6b30ee}" /t REG_DWORD /d 0 /f
 reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel" /v "{645FF040-5081-101B-9F08-00AA002F954E}" /t REG_DWORD /d 0 /f
 echo Icons enabled successfully!
 echo !line!
