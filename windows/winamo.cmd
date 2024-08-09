@@ -52,7 +52,7 @@ set /p choice=Enter your choice (1-9):
 if %choice%==1 goto install_winget
 if %choice%==2 goto last_winget
 if %choice%==3 goto install_standard
-if %choice%==3 goto install_office
+if %choice%==4 goto install_office
 if %choice%==9 goto exit
 
 :: INSTALL WINGET
