@@ -12,11 +12,23 @@ set "WINGET_URL=https://github.com/microsoft/winget-cli/releases/download/v1.8.1
 set "LATEST_WINGET_TITLE=Check last Winget version"
 set "LATEST_WINGET_URL=https://github.com/microsoft/winget-cli/releases/latest"
 
-set "STANDARD_APPS_TITLE=Install standard applications (Firefox, Chrome, VLC, 7-Zip, Notepad++, SumatraPDF, TC)"
-set "STANDARD_APPS=Mozilla.Firefox Google.Chrome VideoLAN.VLC 7zip.7zip Notepad++.Notepad++ SumatraPDF.SumatraPDF Ghisler.TotalCommander"
+set "STANDARD_APPS_TITLE=Install standard applications (Firefox, Chrome, VLC, 7-Zip, SPDF, Total Commander, etc.)"
+set "STANDARD_APPS=Mozilla.Firefox Google.Chrome VideoLAN.VLC 7zip.7zip Notepad++.Notepad++ SumatraPDF.SumatraPDF Ghisler.TotalCommander Oracle.JavaRuntimeEnvironment"
 
-set "OFFICE_APPS_TITLE=Install office applications (LibreOffice, PDF tools, Greenshot, Pinta, Zettlr)"
-set "OFFICE_APPS=TheDocumentFoundation.LibreOffice PDFsam.PDFsam Bullzip.PDFPrinterGreenshot.Greenshot Pinta.Pinta Zettlr.Zettlr"
+set "OFFICE_APPS_TITLE=Install office applications (LibreOffice, PDF tools, Greenshot, Pinta, Zettlr, etc.)"
+set "OFFICE_APPS=TheDocumentFoundation.LibreOffice PDFsam.PDFsam Bullzip.PDFPrinter Greenshot.Greenshot Pinta.Pinta Zettlr.Zettlr GIMP.GIMP"
+
+set "MSG_APPS_TITLE=Install messaging/communication applications (Messenger, Skype, Telegram, Viber, Thunderbird etc.)"
+set "MSG_APPS=Facebook.Messenger Microsoft.Skype Telegram.TelegramDesktop Viber.Viber Mozilla.Thunderbird"
+
+set "MEDIA_APPS_TITLE=Install multimedia applications (AIMP, Audacity, OpenShot, VSDC, OBSStudio etc.)"
+set "MEDIA_APPS=AIMP.AIMP Audacity.Audacity OpenShot.OpenShot VSDC.Editor winget install OBSProject.OBSStudio"
+
+set "SYS_APPS_TITLE=Install sysadmin applications (KeePassXC, PuTTY, NETworkManager, WinSCP, RustDesk, EasyConnect, etc.)"
+set "SYS_APPS=KeePassXCTeam.KeePassXC PuTTY.PuTTY BornToBeRoot.NETworkManager WinSCP.WinSCP winget RustDesk.RustDesk lstratman.easyconnect Microsoft.PowerToys KurtZimmermann.TweakPower MiniTool.PartitionWizard.Free NirSoft.NirCmd TopalaSoftwareSolutions.SIW Glarysoft.GlaryUtilities"
+
+set "DEV_APPS_TITLE=Install developer applications (VS, Atom, Git, Postman, HeidiSQL, ResourceHacker, Wireshark, OpenVPN, etc.)"
+set "DEV_APPS=Microsoft.VisualStudioCode GitHub.Atom Git.Git GitHub.GitHubDesktop Postman.Postman HeidiSQL.HeidiSQL AngusJohnson.ResourceHacker stnkl.EverythingToolbar NickeManarin.ScreenToGif WiresharkFoundation.Wireshark OpenVPNTechnologies.OpenVPNConnect SweetScape.010Editor" 
 
 :: Check if the script is run as an administrator
 openfiles >nul 2>&1
@@ -45,6 +57,10 @@ echo 1. %WINGET_TITLE%
 echo 2. %LATEST_WINGET_TITLE%
 echo 3. %STANDARD_APPS_TITLE%
 echo 4. %OFFICE_APPS_TITLE%
+echo 5. %MSG_APPS_TITLE%
+echo 6. %MEDIA_APPS_TITLE%
+echo 7. %SYS_APPS_TITLE%
+echo 8. %DEV_APPS_TITLE%
 echo 9. Exit
 echo !line!
 set /p choice=Enter your choice (1-9): 
@@ -53,7 +69,17 @@ if %choice%==1 goto install_winget
 if %choice%==2 goto last_winget
 if %choice%==3 goto install_standard
 if %choice%==4 goto install_office
+if %choice%==5 goto install_msg
+if %choice%==6 goto install_media
+if %choice%==7 goto install_sys
+if %choice%==8 goto install_dev
 if %choice%==9 goto exit
+
+echo !line!
+echo ERROR: Invalid choice!
+echo !line!
+pause
+goto menu
 
 :: INSTALL WINGET
 :install_winget
@@ -96,36 +122,61 @@ goto menu
 call :app_install_func "%OFFICE_APPS_TITLE%" "%OFFICE_APPS%"
 goto menu
 
+:: INSTALL MSG APPS
+:install_msg
+call :app_install_func "%MSG_APPS_TITLE%" "%MSG_APPS%"
+goto menu
+
+:: INSTALL MEDIA APPS
+:install_media
+call :app_install_func "%MEDIA_APPS_TITLE%" "%MEDIA_APPS%"
+goto menu
+
+:: INSTALL SYS APPS
+:install_sys
+call :app_install_func "%SYS_APPS_TITLE%" "%SYS_APPS%"
+goto menu
+
+:: INSTALL DEV APPS
+:install_dev
+call :app_install_func "%DEV_APPS_TITLE%" "%DEV_APPS%"
+goto menu
+
 :: INSTALL APPS
 :app_install_func
+
+winget --version >nul 2>&1
+if %errorlevel%==0 ( goto winget_ok ) else ( goto winget_not_ok )
+
+:winget_ok
+:: defender disable
 echo !line!
 echo Application install started...
 echo Disabling Windows Defender temporarily...
 powershell -Command "Set-MpPreference -DisableRealtimeMonitoring $true"
-
-winget --version >nul 2>&1
-if %errorlevel%==0 (
-    echo !line!
-    echo %~1
-    echo !line!
-    for %%a in (%~2) do (
-        echo Installing %%a...
-        winget install %%a --disable-interactivity --silent --accept-source-agreements --accept-package-agreements
-    )
-    echo !line!
-    echo Application install finished.
-    echo !line!
-) else (
-    echo !line!
-    echo Winget is not installed, please install it first!
-    echo !line!
+echo !line!
+echo %~1
+echo !line!
+for %%a in (%~2) do (
+    echo Installing %%a...
+    winget install %%a --disable-interactivity --silent --accept-source-agreements --accept-package-agreements
 )
-
+echo !line!
+echo Application install finished.
+echo !line!
+:: defender enable
 echo Enabling Windows Defender...
 powershell -Command "Set-MpPreference -DisableRealtimeMonitoring $false"
-
 pause
 goto menu
+
+:winget_not_ok
+echo !line!
+echo Winget is not installed, please install it first!
+echo !line!
+pause
+goto menu
+
 
 :: KILEPES
 :exit
