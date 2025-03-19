@@ -4,8 +4,8 @@
 :: Forras: https://github.com/simonszoft/stools
 setlocal
 
-set "VER=1.0"
-set "DT=2024.08.08"
+set "VER=1.1"
+set "DT=2025.03.19"
 
 :: Ellenorizzük, hogy a scriptet rendszergazdakent futtatják-e
 openfiles >nul 2>&1
