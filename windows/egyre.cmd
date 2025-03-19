@@ -4,7 +4,7 @@
 :: Forras: https://github.com/simonszoft/stools
 setlocal
 
-set "VER=1.1b"
+set "VER=1.1"
 set "DT=2025.03.19"
 set "GIT_URL=https://raw.githubusercontent.com/simonszoft/stools/refs/heads/main/windows/egyre.cmd"
 
