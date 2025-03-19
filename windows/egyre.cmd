@@ -4,7 +4,7 @@
 :: Forras: https://github.com/simonszoft/stools
 setlocal
 
-set "VER=1.1"
+set "VER=1.1b"
 set "DT=2025.03.19"
 set "GIT_URL=https://raw.githubusercontent.com/simonszoft/stools/refs/heads/main/windows/egyre.cmd"
 
@@ -174,13 +174,16 @@ cls
 echo !line!
 echo A szkript frissitese a legujabb verziora...
 echo !line!
-powershell -Command "Invoke-WebRequest -Uri '%GIT_URL%' -OutFile '%~dp0egyre.cmd'"
+set "DownloadPath=%~dp0egyre.cmd"
+certutil -urlcache -split -f "%GIT_URL%" "%DownloadPath%"
+
 if %errorlevel% neq 0 (
     echo HIBA: A frissites sikertelen volt!
     pause
     goto menu
 )
-echo A frissités sikeresen befejezodott. Inditsa ujra a szkriptet!
+
+echo A frissites sikeresen befejezodott. Inditsa ujra a szkriptet!
 pause
 exit /b 0
 
