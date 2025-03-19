@@ -4,7 +4,7 @@
 :: Forras: https://github.com/simonszoft/stools
 setlocal
 
-set "VER=1.1"
+set "VER=1.1b"
 set "DT=2025.03.19"
 set "GIT_URL=https://raw.githubusercontent.com/simonszoft/stools/refs/heads/main/windows/egyre.cmd"
 
@@ -19,15 +19,15 @@ if %errorlevel% neq 0 (
 :: Ellenorizzük, hogy a WMIC elérhető-e
 wmic /? >nul 2>&1
 if %errorlevel% neq 0 (
-    echo HIBA: A WMIC nem elérhető a rendszeren!
+    echo HIBA: A WMIC nem elerhető a rendszeren!
     echo WMIC telepítése...
     dism /online /add-capability /capabilityname:Rsat.WMIC~~~~0.0.1.0 >nul 2>&1
     if %errorlevel% neq 0 (
-        echo HIBA: A WMIC telepítése sikertelen!
+        echo HIBA: A WMIC telepitese sikertelen!
         pause
         exit /b 1
     )
-    echo WMIC sikeresen telepítve.
+    echo WMIC sikeresen telepitve.
 )
 
 :: vonal rajzolasa
