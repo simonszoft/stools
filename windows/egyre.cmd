@@ -15,6 +15,20 @@ if %errorlevel% neq 0 (
     exit /b 1
 )
 
+:: Ellenorizzük, hogy a WMIC elérhető-e
+wmic /? >nul 2>&1
+if %errorlevel% neq 0 (
+    echo HIBA: A WMIC nem elérhető a rendszeren!
+    echo WMIC telepítése...
+    dism /online /add-capability /capabilityname:Rsat.WMIC~~~~0.0.1.0 >nul 2>&1
+    if %errorlevel% neq 0 (
+        echo HIBA: A WMIC telepítése sikertelen!
+        pause
+        exit /b 1
+    )
+    echo WMIC sikeresen telepítve.
+)
+
 :: vonal rajzolasa
 :draw_line
 setlocal enabledelayedexpansion
