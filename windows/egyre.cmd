@@ -172,15 +172,15 @@ goto menu
 :update_script
 cls
 echo !line!
-echo A szkript frissítése a legújabb verzióra...
+echo A szkript frissitese a legujabb verziora...
 echo !line!
 powershell -Command "Invoke-WebRequest -Uri '%GIT_URL%' -OutFile '%~dp0egyre.cmd'"
 if %errorlevel% neq 0 (
-    echo HIBA: A frissítés sikertelen volt!
+    echo HIBA: A frissites sikertelen volt!
     pause
     goto menu
 )
-echo A frissítés sikeresen befejeződött. Indítsa újra a szkriptet!
+echo A frissités sikeresen befejezodott. Inditsa ujra a szkriptet!
 pause
 exit /b 0
 
