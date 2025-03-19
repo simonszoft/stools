@@ -21,13 +21,13 @@ wmic /? >nul 2>&1
 if %errorlevel% neq 0 (
     echo HIBA: A WMIC nem elerhető a rendszeren!
     echo WMIC telepítése...
-    dism /online /add-capability /capabilityname:Rsat.WMIC~~~~0.0.1.0 >nul 2>&1
+    dism /Online /Add-Capability /CapabilityName:WMIC~~~~ >nul 2>&1
     if %errorlevel% neq 0 (
         echo HIBA: A WMIC telepitese sikertelen!
         pause
         exit /b 1
     )
-    echo WMIC sikeresen telepitve.
+    echo INFO: WMIC sikeresen telepitve!
 )
 
 :: vonal rajzolasa
@@ -46,7 +46,7 @@ echo (Egy)szeru (Re)ndszergazda eszkoztar - Keszitette: Simon Nandor
 echo !line!
 
 :: Lekerdezzuk az aktualis gep nevet és ip-t
-for /f "tokens=2 delims==" %%i in ('wmic computersystem get name /value') do set "CurrentPCName=%%i"
+for /f %%i in ('hostname') do set "CurrentPCName=%%i"
 echo A szamitogep jelenlegi neve: %CurrentPCName%
 for /f "tokens=14 delims= " %%i in ('ipconfig ^| findstr /i "IPv4"') do echo IP(v4): %%i
 
