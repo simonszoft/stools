@@ -19,8 +19,8 @@ if %errorlevel% neq 0 (
 :: Ellenorizzük, hogy a WMIC elérhető-e
 wmic /? >nul 2>&1
 if %errorlevel% neq 0 (
-    echo HIBA: A WMIC nem elerhető a rendszeren!
-    echo WMIC telepítése...
+    echo HIBA: A WMIC nem elerheto a rendszeren!
+    echo WMIC telepitese...
     dism /Online /Add-Capability /CapabilityName:WMIC~~~~ >nul 2>&1
     if %errorlevel% neq 0 (
         echo HIBA: A WMIC telepitese sikertelen!
