@@ -6,6 +6,7 @@ setlocal
 
 set "VER=1.1"
 set "DT=2025.03.19"
+set "GIT_URL=https://raw.githubusercontent.com/simonszoft/stools/refs/heads/main/windows/egyre.cmd"
 
 :: Ellenorizzük, hogy a scriptet rendszergazdakent futtatják-e
 openfiles >nul 2>&1
@@ -59,9 +60,10 @@ echo 5: Halozati beallitas
 echo 6: Halozati adatok
 echo 7: Lemezkezelo
 echo 8: Licenc informacio
-echo 9: Kilepes
+echo 9: Frissites a legujabb verziora
+echo 0: Kilepes
 echo !line!
-set /p choice=Valassz a fenti menubol (1-9): 
+set /p choice=Valassz a fenti menubol (0-9): 
 
 :: Menupontok kezelese
 if "%choice%"=="1" goto rename_computer
@@ -72,7 +74,8 @@ if "%choice%"=="5" goto network_settings_gui
 if "%choice%"=="6" goto network_info
 if "%choice%"=="7" goto run_drive_manager
 if "%choice%"=="8" goto get_windows_key
-if "%choice%"=="9" goto exit
+if "%choice%"=="9" goto update_script
+if "%choice%"=="0" goto exit
 echo !line!
 echo HIBA: Nincs ilyen menupont!
 echo !line!
@@ -164,6 +167,22 @@ slmgr /xpr
 echo !line!
 pause
 goto menu
+
+:: FRISSITES A LEGÚJABB VERZIÓRA
+:update_script
+cls
+echo !line!
+echo A szkript frissítése a legújabb verzióra...
+echo !line!
+powershell -Command "Invoke-WebRequest -Uri '%GIT_URL%' -OutFile '%~dp0egyre.cmd'"
+if %errorlevel% neq 0 (
+    echo HIBA: A frissítés sikertelen volt!
+    pause
+    goto menu
+)
+echo A frissítés sikeresen befejeződött. Indítsa újra a szkriptet!
+pause
+exit /b 0
 
 :: KILEPES
 :exit
