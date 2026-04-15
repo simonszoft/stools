@@ -12,7 +12,7 @@ Simon's tools for System administrators
 
 ### MOTD installer script for Debian and Ubuntu Linux distributions
 
-![](https://raw.githubusercontent.com/simonszoft/stools/blob/main/linux/doc/motd_install_debian.png)
+![](https://raw.githubusercontent.com/simonszoft/stools/main/linux/doc/motd_install_debian.png)
 
 ### WinGet and More installer script
 
