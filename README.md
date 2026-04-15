@@ -6,7 +6,7 @@ Simon's tools for System administrators
     * [winamo.cmd](https://github.com/simonszoft/stools/blob/main/windows/doc/winamo.md) (WinGet and More installer script)
     * [egyre.cmd](https://github.com/simonszoft/stools/blob/main/windows/doc/egyre.md) (Egyszeru Rendszergazda eszkoztar) - currently only Hungarian language version
 * Linux (Debian, Ubuntu)
-    * install_motd.sh
+    * install_motd.sh (English only)
 
 ## Screenshots
 

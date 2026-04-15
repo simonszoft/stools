@@ -10,6 +10,8 @@ version="1.0.1"
 lastupdate="2026-04-16"
 #Hostname
 hostname=`hostname`
+#User id
+EUID=`id -u`
 
 clear
 
