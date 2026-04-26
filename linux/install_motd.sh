@@ -111,9 +111,9 @@ if [ "$disttype" = "UBUNTU" ]; then
     # Show logo options ?
     read -p "Do you want to show the Ubuntu logo in the MOTD? (y/n) " answer
     if [ "$answer" = "y" ]; then
-        echo "neofetch --logo small" >> /etc/profile.d/motd.sh
+        echo "neofetch" >> /etc/profile.d/motd.sh
     else
-        echo "neofetch --logo none" >> /etc/profile.d/motd.sh
+        echo "neofetch --off logo" >> /etc/profile.d/motd.sh
     fi
 elif [ "$disttype" = "DEBIAN" ]; then
     echo "figlet -c $hostname" > /etc/profile.d/motd.sh
